@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { El_Messiri } from "next/font/google";
 import "./globals.css";
+import { Lusitana } from "next/font/google";
+
+const elmsSans = El_Messiri({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-elms-sans",
+});
+
+const lusitana = Lusitana({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${elmsSans.variable}`}>
+      
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`font-(--font-elms-sans) ${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         {children}
       </body>
